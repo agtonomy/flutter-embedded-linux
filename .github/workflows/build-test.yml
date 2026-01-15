@@ -29,9 +29,9 @@ jobs:
 
     - name: Install Flutter Engine library
       run: |
-        echo `curl https://storage.googleapis.com/flutter_infra_release/flutter/035316565ad77281a75305515e4682e6c4c6f7ca/linux-x64/linux-x64-embedder.zip` > embedder.version
+        echo `curl https://raw.githubusercontent.com/flutter/flutter/flutter-3.38-candidate.0/bin/internal/engine.version` > embedder.version
         export FLUTTER_ENGINE=`cat embedder.version`
-        curl -O https://storage.googleapis.com/flutter_infra/flutter/${FLUTTER_ENGINE}/linux-x64/linux-x64-embedder
+        curl -O https://storage.googleapis.com/flutter_infra_release/flutter/${FLUTTER_ENGINE}/linux-x64/linux-x64-embedder.zip
         ls
         unzip linux-x64-embedder
         mv libflutter_engine.so ${{github.workspace}}/build
@@ -54,7 +54,7 @@ jobs:
     - name: Configure CMake for drm backend with GBM
       shell: bash
       working-directory: ${{github.workspace}}/build
-      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_ELINUX_SO=ON -DBACKEND_TYPE=DRM-GBM -DUSER_PROJECT_PATH=examples/flutter-drm-gbm-backend ..
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBACKEND_TYPE=DRM-GBM -DUSER_PROJECT_PATH=examples/flutter-drm-gbm-backend ..
 
     - name: Build for drm backend with GBM
       working-directory: ${{github.workspace}}/build
