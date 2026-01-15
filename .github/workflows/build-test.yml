@@ -54,7 +54,7 @@ jobs:
     - name: Configure CMake for drm backend with GBM
       shell: bash
       working-directory: ${{github.workspace}}/build
-      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DUSER_PROJECT_PATH=examples/flutter-drm-gbm-backend ..
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBACKEND_TYPE=DRM-GBM -DUSER_PROJECT_PATH=examples/flutter-drm-gbm-backend ..
 
     - name: Build for drm backend with GBM
       working-directory: ${{github.workspace}}/build
@@ -64,7 +64,7 @@ jobs:
     - name: Configure CMake for drm backend with EGLStream
       shell: bash
       working-directory: ${{github.workspace}}/build
-      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DUSER_PROJECT_PATH=examples/flutter-drm-eglstream-backend ..
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_ELINUX_SO=ON -DBACKEND_TYPE=DRM-EGLSTREAM -DUSER_PROJECT_PATH=examples/flutter-drm-eglstream-backend ..
 
     - name: Build for drm backend with EGLStream
       working-directory: ${{github.workspace}}/build
@@ -74,7 +74,7 @@ jobs:
     - name: Configure CMake for x11 backend
       shell: bash
       working-directory: ${{github.workspace}}/build
-      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DUSER_PROJECT_PATH=examples/flutter-x11-client ..
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_ELINUX_SO=ON -DBACKEND_TYPE=X11 -DUSER_PROJECT_PATH=examples/flutter-x11-client ..
 
     - name: Build for x11 backend
       working-directory: ${{github.workspace}}/build
