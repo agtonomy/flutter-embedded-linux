@@ -1,4 +1,4 @@
-# Embedded Linux (eLinux) embedding for Flutter
+# Embedded Linux (eLinux) embedding for Flutter at Agtonomy
 ![image](https://github.com/sony/flutter-elinux/blob/main/doc/images/overview.png)
 
 [![build-test](https://github.com/sony/flutter-embedded-linux/actions/workflows/build-test.yml/badge.svg)](https://github.com/sony/flutter-embedded-linux/actions/workflows/build-test.yml)
